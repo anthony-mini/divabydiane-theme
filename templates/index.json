@@ -7,7 +7,7 @@
         "heading": "Be a Diva.",
         "subheading": "<p>Des pièces qu'on ne trouve pas ailleurs — produites en petites séries, jamais rééditées.</p>",
         "button_label": "Découvrir",
-        "button_link": "shopify://collections/all"
+        "button_link": "shopify://collections/tous-nos-bijoux"
       }
     },
     "brand_promise_strip": {
@@ -90,7 +90,7 @@
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "all",
+        "collection": "tous-nos-bijoux",
         "products_to_show": 4,
         "columns_desktop": 4,
         "color_scheme": "scheme-1",
