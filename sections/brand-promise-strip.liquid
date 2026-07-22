@@ -1,0 +1,44 @@
+{{ 'component-brand-promise-strip.css' | asset_url | stylesheet_tag }}
+
+<div class="brand-promise-strip color-{{ section.settings.color_scheme }}">
+  <div class="brand-promise-strip__inner page-width">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="brand-promise-strip__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    {%- endif -%}
+    {%- if section.settings.text != blank -%}
+      <div class="brand-promise-strip__text">{{ section.settings.text }}</div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Teaser narratif",
+  "class": "section-brand-promise-strip",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "NOTRE PROMESSE"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Texte",
+      "default": "<p>Luxe abordable, pièces originales — pensées pour être portées.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Teaser narratif"
+    }
+  ]
+}
+{% endschema %}

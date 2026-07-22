@@ -1,75 +1,171 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "color_scheme": "scheme-2",
+        "heading": "Be a Diva.",
+        "subheading": "<p>Des pièces qu'on ne trouve pas ailleurs — produites en petites séries, jamais rééditées.</p>",
+        "button_label": "Découvrir",
+        "button_link": "shopify://collections/tous-nos-bijoux"
+      }
+    },
+    "brand_promise_strip": {
+      "type": "brand-promise-strip",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "eyebrow": "NOTRE PROMESSE",
+        "text": "<p>Luxe abordable, pièces originales — pensées pour être portées.</p>"
+      }
+    },
+    "promo_strip": {
+      "type": "promo-strip",
+      "settings": {
+        "color_scheme": "scheme-4",
+        "heading": "COLLECTION DE JUILLET — JUSQU'AU 31",
+        "subtext": "Dès 19€ — plus que quelques pièces disponibles"
+      }
+    },
+    "reassurance_strip": {
+      "type": "reassurance-strip",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "packaging": {
+          "type": "item",
+          "settings": { "icon": "icon-box.svg", "label": "Packaging signature" }
+        },
+        "sav": {
+          "type": "item",
+          "settings": { "icon": "icon-chat-bubble.svg", "label": "SAV 24/7" }
+        },
+        "shipping": {
+          "type": "item",
+          "settings": { "icon": "icon-truck.svg", "label": "Livraison offerte dès 50€" }
+        },
+        "returns": {
+          "type": "item",
+          "settings": { "icon": "icon-return.svg", "label": "Retour sous 14 jours" }
+        }
+      },
+      "block_order": ["packaging", "sav", "shipping", "returns"],
+      "settings": {
+        "color_scheme": "scheme-1"
+      }
+    },
+    "reviews_widget": {
+      "type": "reviews-widget",
+      "blocks": {
+        "review_1": {
+          "type": "review",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "quote": "La bague Chenette est encore plus belle en vrai, et elle ne ternit pas.",
+            "author": "Camille R., cliente vérifiée"
           }
         },
-        "button": {
-          "type": "buttons",
+        "review_2": {
+          "type": "review",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "quote": "Packaging magnifique, parfait pour offrir. Livraison rapide.",
+            "author": "Léa M., cliente vérifiée"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "quote": "Mon collier préféré, je le porte tous les jours depuis 3 mois.",
+            "author": "Sarah B., cliente vérifiée"
           }
         }
       },
-      "block_order": [
-        "heading",
-        "button"
-      ],
+      "block_order": ["review_1", "review_2", "review_3"],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "color_scheme": "scheme-1",
+        "rating_text": "4.8/5 — 120+ avis vérifiés"
       }
     },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
+        "title": "Nouveautés",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
+        "collection": "tous-nos-bijoux",
+        "products_to_show": 4,
         "columns_desktop": 4,
         "color_scheme": "scheme-1",
         "full_width": false,
         "show_view_all": true,
-        "view_all_style": "solid",
+        "view_all_style": "link",
         "enable_desktop_slider": false,
         "swipe_on_mobile": false,
-        "image_ratio": "adapt",
+        "image_ratio": "portrait",
         "image_shape": "default",
-        "show_secondary_image": true,
+        "show_secondary_image": false,
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "none",
         "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "padding_top": 32,
+        "padding_bottom": 32
+      }
+    },
+    "collection_list": {
+      "type": "collection-list",
+      "blocks": {
+        "bagues": {
+          "type": "featured_collection",
+          "settings": { "collection": "" }
+        },
+        "colliers": {
+          "type": "featured_collection",
+          "settings": { "collection": "" }
+        },
+        "bracelets": {
+          "type": "featured_collection",
+          "settings": { "collection": "" }
+        },
+        "boucles": {
+          "type": "featured_collection",
+          "settings": { "collection": "" }
+        },
+        "tous_nos_bijoux": {
+          "type": "featured_collection",
+          "settings": { "collection": "tous-nos-bijoux" }
+        }
+      },
+      "block_order": ["bagues", "colliers", "bracelets", "boucles", "tous_nos_bijoux"],
+      "settings": {
+        "title": "Nos collections",
+        "heading_size": "h2",
+        "image_ratio": "portrait",
+        "columns_desktop": 5,
+        "color_scheme": "scheme-1",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 32,
+        "padding_bottom": 32
+      }
+    },
+    "editorial_banner": {
+      "type": "editorial-banner",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading": "Luxe abordable, pièces originales",
+        "text": "<p>Chaque bijou Diva by Diane est pensé pour durer — sans jamais imiter, sans jamais se ternir.</p>",
+        "link_label": "En savoir plus"
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "hero",
+    "brand_promise_strip",
+    "promo_strip",
+    "reassurance_strip",
+    "reviews_widget",
+    "featured_collection",
+    "collection_list",
+    "editorial_banner"
   ]
 }
