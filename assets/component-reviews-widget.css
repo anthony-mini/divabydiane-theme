@@ -1,0 +1,68 @@
+/* Figma node 92:304 (mobile) / 87:71 (desktop) */
+.reviews-widget {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.reviews-widget__inner {
+  padding-top: 3.2rem;
+  padding-bottom: 3.2rem;
+}
+
+.reviews-widget__stars {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.reviews-widget__star svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  fill: var(--color-gold);
+}
+
+.reviews-widget__rating {
+  margin: 0.6rem 0 2rem;
+  font-family: var(--font-body-family);
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: rgb(var(--color-foreground));
+}
+
+.reviews-widget__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.reviews-widget__item {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.reviews-widget__quote {
+  margin: 0;
+  font-family: var(--font-body-family);
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: rgb(var(--color-foreground));
+}
+
+.reviews-widget__author {
+  font-style: normal;
+  font-family: var(--font-body-family);
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--color-gold-text);
+}
+
+@media screen and (min-width: 990px) {
+  .reviews-widget__list {
+    flex-direction: row;
+    gap: 4.8rem;
+  }
+
+  .reviews-widget__item {
+    flex: 1;
+  }
+}

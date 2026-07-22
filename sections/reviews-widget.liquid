@@ -1,0 +1,73 @@
+{{ 'component-reviews-widget.css' | asset_url | stylesheet_tag }}
+
+<div class="reviews-widget color-{{ section.settings.color_scheme }}">
+  <div class="reviews-widget__inner page-width">
+    <div class="reviews-widget__stars" aria-hidden="true">
+      {%- for i in (1..5) -%}
+        <span class="reviews-widget__star">{{ 'icon-star.svg' | inline_asset_content }}</span>
+      {%- endfor -%}
+    </div>
+    {%- if section.settings.rating_text != blank -%}
+      <p class="reviews-widget__rating">{{ section.settings.rating_text | escape }}</p>
+    {%- endif -%}
+    <div class="reviews-widget__list">
+      {%- for block in section.blocks -%}
+        <blockquote class="reviews-widget__item" {{ block.shopify_attributes }}>
+          <p class="reviews-widget__quote">«{{ block.settings.quote | escape }}»</p>
+          <cite class="reviews-widget__author">— {{ block.settings.author | escape }}</cite>
+        </blockquote>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Avis clients",
+  "class": "section-reviews-widget",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "rating_text",
+      "label": "Texte de note (réel uniquement)",
+      "default": "4.8/5 — 120+ avis vérifiés"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Avis",
+      "settings": [
+        {
+          "type": "text",
+          "id": "quote",
+          "label": "Citation",
+          "default": "La bague Chenette est encore plus belle en vrai, et elle ne ternit pas."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Auteure",
+          "default": "Camille R., cliente vérifiée"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Avis clients",
+      "blocks": [
+        { "type": "review", "settings": { "quote": "La bague Chenette est encore plus belle en vrai, et elle ne ternit pas.", "author": "Camille R., cliente vérifiée" } },
+        { "type": "review", "settings": { "quote": "Packaging magnifique, parfait pour offrir. Livraison rapide.", "author": "Léa M., cliente vérifiée" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

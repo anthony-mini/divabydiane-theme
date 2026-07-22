@@ -1,0 +1,61 @@
+/* Figma node 91:229 (mobile) — stacked layout: image, then content below on a
+   plain background. Desktop (82:6 -- 03 Hero, matching the Figma Mockups page
+   Banner/Hero master) instead overlays the content on the image with a
+   legibility scrim; that treatment is deferred to the desktop responsive
+   pass, not implemented here. */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0 2rem 3.2rem;
+}
+
+.hero__media {
+  width: 100%;
+  aspect-ratio: 350 / 420;
+  overflow: hidden;
+}
+
+.hero__image,
+.hero__image--placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+  padding: 0;
+  max-width: none;
+}
+
+.hero__heading {
+  margin: 0;
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  font-size: 3rem;
+  line-height: 1.1;
+  color: rgb(var(--color-foreground));
+}
+
+.hero__subheading {
+  display: none;
+  margin: 0;
+  font-family: var(--font-body-family);
+  font-size: 1.6rem;
+  line-height: 1.4;
+  color: rgb(var(--color-foreground));
+}
+
+.hero__cta {
+  font-family: var(--font-body-family);
+  font-size: 1.2rem;
+  color: rgb(var(--color-foreground));
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}

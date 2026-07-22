@@ -1,0 +1,30 @@
+/* Figma node 92:274 (mobile) / 85:150 (desktop), master Banner/Promo Strip 29:23 */
+.promo-strip {
+  display: block;
+  text-decoration: none;
+}
+
+.promo-strip__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  justify-content: center;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+}
+
+.promo-strip__heading {
+  margin: 0;
+  font-family: var(--font-body-family);
+  font-weight: 500;
+  font-size: 1.2rem;
+  letter-spacing: 0.048rem;
+  color: var(--color-gold-text);
+}
+
+.promo-strip__subtext {
+  margin: 0;
+  font-family: var(--font-body-family);
+  font-size: 1.1rem;
+  color: #d9d9d9;
+}
