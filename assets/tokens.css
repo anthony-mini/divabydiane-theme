@@ -10,7 +10,26 @@
  * here. This file only adds what Dawn has no settings slot for.
  */
 
+/* Prata self-hosted -- Shopify's font_picker "prata_n4" is deprecated and
+   silently substitutes "Playfair" at render time (confirmed live: computed
+   --font-heading-family resolved to "Playfair, serif", not Prata). Prata is
+   a locked brand decision, not a merchant-editable setting, so self-hosting
+   it removes any dependency on Shopify's font library churn. Jost is fine
+   via the standard settings.type_body_font mechanism -- not deprecated,
+   left untouched. */
+@font-face {
+  font-family: 'Prata';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('prata-regular.woff2') format('woff2');
+}
+
 :root {
+  --font-heading-family: 'Prata', serif;
+  --font-heading-style: normal;
+  --font-heading-weight: 400;
+
   /* Accessible gold text — #B08D57 raw fails WCAG AA for body text (3.09:1).
      Reserved for text/badges; raw gold stays for fills/icons/text >= 18px. */
   --color-gold-text: #8A6D3F;
