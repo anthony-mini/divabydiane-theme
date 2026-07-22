@@ -146,24 +146,19 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   }
 }
 
-/* Header margin aligned to body content, not the Header component's own
-   isolated Figma spec (node 13:41: 1200px box + 32px padding = 152px from
-   the viewport edge at 1440px). Checked against the actual mockup content
-   sections (Nouveautés/Collections, nodes 87:244/88:155): both pad 64px
-   directly inside the full 1440 frame, no extra centered sub-box. Matching
-   that here so header nav lines up with the content below it instead of
-   sitting noticeably more indented. Also drops the header's own max-width
-   cap so it isn't double-margined (centered 1200 box + padding) at wide
-   viewports. */
+/* Correction: an earlier pass here matched the header's padding to the body
+   content sections' 64px margin (Nouveautés/Collections, nodes 87:244/88:155),
+   reasoning the header's own isolated component spec (13:41: 1200px box +
+   32px padding = 152px from the viewport edge) was a red herring. Fetching
+   the full composed Home mockup (node 82:3) directly disproves that: the
+   Header instance there renders `w-full` with `px-[32px]` — i.e. 32px from
+   the real viewport edge, matching Dawn's own unmodified default (inherited
+   from the 750px tier below, 3.2rem). Body content sections intentionally
+   sit at 64px while the header sits at 32px — not a bug, a deliberate
+   difference. Only the max-width drop is still needed, so the header spans
+   full width instead of being centered as an isolated 1200px box. */
 .header.page-width {
   max-width: none;
-}
-
-@media screen and (min-width: 990px) {
-  .header:not(.drawer-menu).page-width {
-    padding-left: 6.4rem;
-    padding-right: 6.4rem;
-  }
 }
 
 .isolate {
