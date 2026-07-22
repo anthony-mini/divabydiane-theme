@@ -285,6 +285,17 @@
         {%- endcase -%}
       {%- endfor -%}
 
+      {%- comment -%}
+        Visual placeholder only — matches the Figma header spec (search /
+        wishlist / cart icon group) but is intentionally not wired to a real
+        wishlist yet: there is no product-level "add to wishlist" control
+        (Product Card, Figma node 43:20) built yet, so there is nothing for
+        this icon to count or link to. Revisit once Product Card ships.
+      {%- endcomment -%}
+      <span class="header__icon header__icon--wishlist" title="{{ 'sections.header.wishlist' | t }}">
+        <span class="svg-wrapper">{{ 'icon-heart.svg' | inline_asset_content }}</span>
+      </span>
+
       <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
         {% if cart == empty %}
           <span class="svg-wrapper">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>

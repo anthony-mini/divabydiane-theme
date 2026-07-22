@@ -2578,6 +2578,15 @@ input[type='checkbox'] {
   vertical-align: middle;
 }
 
+/* icon-heart.svg (unlike icon-search/cart/account) has no fill attribute of
+   its own — it's a shared asset also used by "icon with text" content
+   blocks, where the default black fill is fine. Only override fill back on
+   for this one icon here, scoped to the header, rather than editing the
+   shared SVG file. */
+.header__icon--wishlist .icon {
+  fill: currentColor;
+}
+
 .header__icon,
 .header__icon--cart .icon {
   height: 4.4rem;

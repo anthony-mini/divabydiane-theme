@@ -279,6 +279,7 @@
     "header": {
       "announcement": "Annonce",
       "menu": "Menu",
+      "wishlist": "Liste de souhaits",
       "cart_count": {
         "one": "{{ count }} article",
         "other": "{{ count }} articles",
