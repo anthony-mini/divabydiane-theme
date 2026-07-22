@@ -146,6 +146,17 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   }
 }
 
+/* Figma spec (node 13:41): header padding is 32px at every width Dawn treats
+   as "desktop" -- override Dawn's wider 50px default for non-drawer menus
+   at >=990px specifically for the header (.page-width elsewhere is
+   unaffected). */
+@media screen and (min-width: 990px) {
+  .header:not(.drawer-menu).page-width {
+    padding-left: 3.2rem;
+    padding-right: 3.2rem;
+  }
+}
+
 .isolate {
   position: relative;
   z-index: 0;
@@ -2267,6 +2278,17 @@ input[type='checkbox'] {
   min-height: 3.8rem;
 }
 
+/* Brand override — Figma spec: Jost Medium 12px, tracking ~4%, not the
+   default Prata .h5 heading style. Dawn only preloads bold (700) for the
+   body font, not a true 500 medium weight, so bold stands in for "Medium". */
+.announcement-bar__message.h5 {
+  font-family: var(--font-body-family);
+  font-weight: 700;
+  font-size: var(--text-nav);
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+}
+
 .announcement-bar-slider--fade-in-next .announcement-bar__message,
 .announcement-bar-slider--fade-in-previous .announcement-bar__message,
 .announcement-bar-slider--fade-out-next .announcement-bar__message,
@@ -2462,7 +2484,11 @@ input[type='checkbox'] {
 
 .header__heading-link .h2 {
   line-height: 1;
-  color: rgba(var(--color-foreground), 0.75);
+  /* Figma spec (node 13:41): solid black logo text, not Dawn's muted 75%
+     default -- the logo is the one heading-style text that should never
+     read as de-emphasized. */
+  color: rgb(var(--color-foreground));
+  font-size: 2.6rem;
 }
 
 .header__heading-logo {
@@ -2565,6 +2591,15 @@ input[type='checkbox'] {
   width: 2rem;
   fill: none;
   vertical-align: middle;
+}
+
+/* icon-heart.svg (unlike icon-search/cart/account) has no fill attribute of
+   its own — it's a shared asset also used by "icon with text" content
+   blocks, where the default black fill is fine. Only override fill back on
+   for this one icon here, scoped to the header, rather than editing the
+   shared SVG file. */
+.header__icon--wishlist .icon {
+  fill: currentColor;
 }
 
 .header__icon,
@@ -2810,6 +2845,18 @@ details[open] > .header__submenu {
   padding: 1.2rem;
   text-decoration: none;
   color: rgba(var(--color-foreground), 0.75);
+}
+
+/* Figma spec (node 13:41): Jost bold uppercase 12px, ~4% tracking, solid
+   color -- scoped to the desktop inline nav only, not submenus/drawer which
+   reuse the same .header__menu-item class. */
+.header__inline-menu .header__menu-item {
+  font-family: var(--font-body-family);
+  font-size: var(--text-nav);
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  color: rgb(var(--color-foreground));
 }
 
 .header__menu-item:hover {

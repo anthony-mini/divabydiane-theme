@@ -21,6 +21,7 @@
         "facebook": "Facebook",
         "pinterest": "Pinterest",
         "instagram": "Instagram",
+        "instagram_handle": "@divabydiane",
         "tumblr": "Tumblr",
         "snapchat": "Snapchat",
         "youtube": "YouTube",
@@ -279,6 +280,7 @@
     "header": {
       "announcement": "Annonce",
       "menu": "Menu",
+      "wishlist": "Liste de souhaits",
       "cart_count": {
         "one": "{{ count }} article",
         "other": "{{ count }} articles",
