@@ -2267,6 +2267,17 @@ input[type='checkbox'] {
   min-height: 3.8rem;
 }
 
+/* Brand override — Figma spec: Jost Medium 12px, tracking ~4%, not the
+   default Prata .h5 heading style. Dawn only preloads bold (700) for the
+   body font, not a true 500 medium weight, so bold stands in for "Medium". */
+.announcement-bar__message.h5 {
+  font-family: var(--font-body-family);
+  font-weight: 700;
+  font-size: var(--text-nav);
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+}
+
 .announcement-bar-slider--fade-in-next .announcement-bar__message,
 .announcement-bar-slider--fade-in-previous .announcement-bar__message,
 .announcement-bar-slider--fade-out-next .announcement-bar__message,
