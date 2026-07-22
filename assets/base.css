@@ -146,14 +146,23 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   }
 }
 
-/* Figma spec (node 13:41): header padding is 32px at every width Dawn treats
-   as "desktop" -- override Dawn's wider 50px default for non-drawer menus
-   at >=990px specifically for the header (.page-width elsewhere is
-   unaffected). */
+/* Header margin aligned to body content, not the Header component's own
+   isolated Figma spec (node 13:41: 1200px box + 32px padding = 152px from
+   the viewport edge at 1440px). Checked against the actual mockup content
+   sections (Nouveautés/Collections, nodes 87:244/88:155): both pad 64px
+   directly inside the full 1440 frame, no extra centered sub-box. Matching
+   that here so header nav lines up with the content below it instead of
+   sitting noticeably more indented. Also drops the header's own max-width
+   cap so it isn't double-margined (centered 1200 box + padding) at wide
+   viewports. */
+.header.page-width {
+  max-width: none;
+}
+
 @media screen and (min-width: 990px) {
   .header:not(.drawer-menu).page-width {
-    padding-left: 3.2rem;
-    padding-right: 3.2rem;
+    padding-left: 6.4rem;
+    padding-right: 6.4rem;
   }
 }
 
