@@ -14,19 +14,41 @@ Thème Shopify Liquid basé sur [Dawn](https://github.com/Shopify/dawn), le thè
 
 ## Développement local
 
+**Prérequis d'authentification** : installer l'app gratuite **Theme Access**
+depuis le App Store Shopify, générer un mot de passe (`shptka_...`), et le
+mettre dans `apps/v1/.env` (jamais commité, déjà dans `.gitignore`) :
+
 ```bash
-# Depuis apps/v1
-# Connexion + dev store (aperçu local avec hot reload)
-shopify theme dev --store <ton-store>.myshopify.com
+# apps/v1/.env
+SHOPIFY_CLI_THEME_TOKEN=shptka_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
 
-# Vérifier la qualité du thème (Theme Check)
+Détails et dépannage : [docs/apps/front/theme-v1-dawn.md](../../docs/apps/front/theme-v1-dawn.md).
+
+```bash
+# Depuis apps/v1 — scripts/ charge automatiquement .env
+scripts/dev.sh                 # aperçu local avec hot reload (http://127.0.0.1:9292)
+scripts/check.sh               # Theme Check (lint)
+scripts/preview.sh             # preview partageable, thème non publié (jamais le live)
+scripts/pull-live-settings.sh  # récupère juste config/settings_data.json du live (avec confirmation + diff)
+```
+
+Équivalent sans les scripts (à préférer si besoin de flags spécifiques) :
+
+```bash
+set -a; source .env; set +a
+shopify theme dev --store divabydiane.myshopify.com
 shopify theme check
+shopify theme push --unpublished --json
+shopify theme pull --live --only=config/settings_data.json
+```
 
-# Pousser le thème vers la boutique (thème de dev non publié)
-shopify theme push --unpublished
+Autres commandes utiles, pas de script dédié (usage ponctuel) :
 
-# Récupérer les réglages/données depuis la boutique
-shopify theme pull
+```bash
+shopify theme list --store divabydiane.myshopify.com          # IDs et statuts des thèmes
+shopify theme open --live --store divabydiane.myshopify.com    # liens preview/éditeur du thème live
+shopify theme share                                            # preview à usage unique, nom aléatoire
 ```
 
 ## Structure
