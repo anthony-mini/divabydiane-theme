@@ -4,21 +4,65 @@
   "sections": {
     "footer": {
       "type": "footer",
-      "blocks": {},
-      "block_order": [],
+      "blocks": {
+        "trust_packaging": {
+          "type": "trust_badge",
+          "settings": {
+            "heading": "Packaging signature",
+            "text": "Chaque bijou est présenté dans son écrin Diva by Diane."
+          }
+        },
+        "trust_shipping": {
+          "type": "trust_badge",
+          "settings": {
+            "heading": "Livraison Colissimo",
+            "text": "Offerte dès 50€ d'achat."
+          }
+        },
+        "trust_returns": {
+          "type": "trust_badge",
+          "settings": {
+            "heading": "Retour sous 14 jours",
+            "text": "Frais de retour à la charge de la cliente."
+          }
+        },
+        "nav_boutique": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Boutique",
+            "menu": "main-menu"
+          }
+        },
+        "nav_aide": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Aide",
+            "menu": "footer"
+          }
+        },
+        "nav_legal": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Légal",
+            "menu": "footer"
+          }
+        }
+      },
+      "block_order": [
+        "trust_packaging",
+        "trust_shipping",
+        "trust_returns",
+        "nav_boutique",
+        "nav_aide",
+        "nav_legal"
+      ],
       "settings": {
-        "color_scheme": "scheme-1",
-        "newsletter_enable": true,
-        "newsletter_heading": "Subscribe to our emails",
-        "enable_follow_on_shop": true,
-        "show_social": true,
-        "enable_country_selector": true,
-        "enable_language_selector": true,
+        "color_scheme": "scheme-4",
+        "brand_tagline": "BE A DIVA",
         "payment_enable": true,
-        "show_policy": true,
         "margin_top": 0,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 48,
+        "padding_bottom": 32
       }
     }
   },
