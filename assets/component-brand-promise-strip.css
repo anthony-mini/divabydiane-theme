@@ -13,8 +13,8 @@
   margin: 0;
   font-family: var(--font-body-family);
   font-weight: 500;
-  font-size: 1rem;
-  letter-spacing: 0.08rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.088rem;
   color: rgb(var(--color-foreground));
 }
 
@@ -29,12 +29,12 @@
 
 @media screen and (min-width: 990px) {
   .brand-promise-strip__inner {
-    padding-top: 3.6rem;
-    padding-bottom: 3.6rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 
   .brand-promise-strip__text {
-    max-width: none;
+    max-width: 60rem;
     font-size: 1.6rem;
   }
 }

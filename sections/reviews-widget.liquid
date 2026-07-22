@@ -13,6 +13,11 @@
     <div class="reviews-widget__list">
       {%- for block in section.blocks -%}
         <blockquote class="reviews-widget__item" {{ block.shopify_attributes }}>
+          <div class="reviews-widget__item-stars" aria-hidden="true">
+            {%- for i in (1..5) -%}
+              <span class="reviews-widget__item-star">{{ 'icon-star.svg' | inline_asset_content }}</span>
+            {%- endfor -%}
+          </div>
           <p class="reviews-widget__quote">«{{ block.settings.quote | escape }}»</p>
           <cite class="reviews-widget__author">— {{ block.settings.author | escape }}</cite>
         </blockquote>
@@ -65,7 +70,8 @@
       "name": "Avis clients",
       "blocks": [
         { "type": "review", "settings": { "quote": "La bague Chenette est encore plus belle en vrai, et elle ne ternit pas.", "author": "Camille R., cliente vérifiée" } },
-        { "type": "review", "settings": { "quote": "Packaging magnifique, parfait pour offrir. Livraison rapide.", "author": "Léa M., cliente vérifiée" } }
+        { "type": "review", "settings": { "quote": "Packaging magnifique, parfait pour offrir. Livraison rapide.", "author": "Léa M., cliente vérifiée" } },
+        { "type": "review", "settings": { "quote": "Mon collier préféré, je le porte tous les jours depuis 3 mois.", "author": "Sarah B., cliente vérifiée" } }
       ]
     }
   ]

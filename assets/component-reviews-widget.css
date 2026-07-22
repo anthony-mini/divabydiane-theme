@@ -14,8 +14,8 @@
 }
 
 .reviews-widget__star svg {
-  width: 1.4rem;
-  height: 1.4rem;
+  width: 1.6rem;
+  height: 1.6rem;
   fill: var(--color-gold);
 }
 
@@ -40,6 +40,17 @@
   gap: 0.6rem;
 }
 
+.reviews-widget__item-stars {
+  display: flex;
+  gap: 0.1rem;
+}
+
+.reviews-widget__item-star svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: var(--color-gold);
+}
+
 .reviews-widget__quote {
   margin: 0;
   font-family: var(--font-body-family);
@@ -57,9 +68,14 @@
 }
 
 @media screen and (min-width: 990px) {
+  .reviews-widget__inner {
+    padding-top: 5.6rem;
+    padding-bottom: 5.6rem;
+  }
+
   .reviews-widget__list {
     flex-direction: row;
-    gap: 4.8rem;
+    gap: 3.2rem;
   }
 
   .reviews-widget__item {

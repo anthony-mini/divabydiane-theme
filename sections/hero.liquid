@@ -1,33 +1,36 @@
 {{ 'component-hero.css' | asset_url | stylesheet_tag }}
 
 <div class="hero color-{{ section.settings.color_scheme }}">
-  <div class="hero__media">
-    {%- if section.settings.image -%}
-      {{
-        section.settings.image
-        | image_url: width: 1500
-        | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 1200px, 100vw', widths: '400,600,800,1000,1200,1500', class: 'hero__image', alt: section.settings.image.alt | default: section.settings.heading
-      }}
-    {%- else -%}
-      {{ 'hero-apparel-1' | placeholder_svg_tag: 'hero__image hero__image--placeholder' }}
-    {%- endif -%}
-  </div>
-  {%- assign subheading_text = section.settings.subheading | strip_html | strip -%}
-  <div class="hero__content page-width">
-    {%- if section.settings.heading != blank -%}
-      <h1 class="hero__heading">{{ section.settings.heading | escape }}</h1>
-    {%- endif -%}
-    {%- if subheading_text != blank -%}
-      <p class="hero__subheading">{{ section.settings.subheading }}</p>
-    {%- endif -%}
-    {%- if section.settings.button_label != blank -%}
-      <a
-        {% if section.settings.button_link == blank %}role="link" aria-disabled="true"{% else %}href="{{ section.settings.button_link }}"{% endif %}
-        class="hero__cta link"
-      >
-        {{ section.settings.button_label | escape }}
-      </a>
-    {%- endif -%}
+  <div class="hero__inner">
+    <div class="hero__media">
+      {%- if section.settings.image -%}
+        {{
+          section.settings.image
+          | image_url: width: 1500
+          | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 1200px, 100vw', widths: '400,600,800,1000,1200,1500', class: 'hero__image', alt: section.settings.image.alt | default: section.settings.heading
+        }}
+      {%- else -%}
+        {{ 'hero-apparel-1' | placeholder_svg_tag: 'hero__image hero__image--placeholder' }}
+      {%- endif -%}
+    </div>
+    <div class="hero__scrim" aria-hidden="true"></div>
+    {%- assign subheading_text = section.settings.subheading | strip_html | strip -%}
+    <div class="hero__content page-width">
+      {%- if section.settings.heading != blank -%}
+        <h1 class="hero__heading">{{ section.settings.heading | escape }}</h1>
+      {%- endif -%}
+      {%- if subheading_text != blank -%}
+        <div class="hero__subheading">{{ section.settings.subheading }}</div>
+      {%- endif -%}
+      {%- if section.settings.button_label != blank -%}
+        <a
+          {% if section.settings.button_link == blank %}role="link" aria-disabled="true"{% else %}href="{{ section.settings.button_link }}"{% endif %}
+          class="hero__cta link"
+        >
+          {{ section.settings.button_label | escape }}
+        </a>
+      {%- endif -%}
+    </div>
   </div>
 </div>
 

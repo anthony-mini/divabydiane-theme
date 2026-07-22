@@ -3,8 +3,9 @@
     "hero": {
       "type": "hero",
       "settings": {
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-2",
         "heading": "Be a Diva.",
+        "subheading": "<p>Des pièces qu'on ne trouve pas ailleurs — produites en petites séries, jamais rééditées.</p>",
         "button_label": "Découvrir",
         "button_link": "shopify://collections/all"
       }
@@ -66,9 +67,16 @@
             "quote": "Packaging magnifique, parfait pour offrir. Livraison rapide.",
             "author": "Léa M., cliente vérifiée"
           }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "quote": "Mon collier préféré, je le porte tous les jours depuis 3 mois.",
+            "author": "Sarah B., cliente vérifiée"
+          }
         }
       },
-      "block_order": ["review_1", "review_2"],
+      "block_order": ["review_1", "review_2", "review_3"],
       "settings": {
         "color_scheme": "scheme-1",
         "rating_text": "4.8/5 — 120+ avis vérifiés"
