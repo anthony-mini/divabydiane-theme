@@ -2832,6 +2832,18 @@ details[open] > .header__submenu {
   color: rgba(var(--color-foreground), 0.75);
 }
 
+/* Figma spec (node 13:41): Jost bold uppercase 12px, ~4% tracking, solid
+   color -- scoped to the desktop inline nav only, not submenus/drawer which
+   reuse the same .header__menu-item class. */
+.header__inline-menu .header__menu-item {
+  font-family: var(--font-body-family);
+  font-size: var(--text-nav);
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  color: rgb(var(--color-foreground));
+}
+
 .header__menu-item:hover {
   color: rgb(var(--color-foreground));
 }
