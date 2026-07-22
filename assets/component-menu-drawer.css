@@ -95,30 +95,34 @@ details[open].menu-opening > .menu-drawer__submenu {
 }
 
 .js .menu-drawer__menu li {
-  margin-bottom: 0.2rem;
+  margin-bottom: 0;
 }
 
 .menu-drawer__menu-item {
-  padding: 1.1rem 3rem;
+  padding: 1.6rem 2rem;
   text-decoration: none;
-  font-size: 1.8rem;
+  font-family: var(--font-body-family);
+  font-size: var(--text-body, 1.6rem);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .menu-drawer summary.menu-drawer__menu-item {
   padding-right: 5.2rem;
 }
 
+/* Flat list per Figma spec (node 36:26) -- border dividers only, no shaded
+   hover/active background band. Focus still gets a visible outline via
+   `focus-inset` (kept, not removed, for keyboard accessibility). */
 .menu-drawer__menu-item--active,
-.menu-drawer__menu-item:focus,
-.menu-drawer__close-button:focus,
 .menu-drawer__menu-item:hover,
 .menu-drawer__close-button:hover {
   color: rgb(var(--color-foreground));
-  background-color: rgba(var(--color-foreground), 0.04);
+  background-color: transparent;
 }
 
-.menu-drawer__menu-item--active:hover {
-  background-color: rgba(var(--color-foreground), 0.08);
+.menu-drawer__close-button:focus {
+  color: rgb(var(--color-foreground));
+  background-color: rgba(var(--color-foreground), 0.04);
 }
 
 .js .menu-drawer__menu-item .icon-caret {

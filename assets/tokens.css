@@ -27,4 +27,5 @@
   --text-eyebrow: 1.1rem;  /* Jost Medium, tracking +8% */
   --text-button: 1.4rem;   /* Jost Medium, tracking +2% */
   --text-nav: 1.2rem;      /* Jost Medium, tracking +4% — header nav links */
+  --text-body: 1.6rem;     /* Jost Regular — mobile drawer nav list, body copy */
 }
