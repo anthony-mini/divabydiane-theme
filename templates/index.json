@@ -128,14 +128,18 @@
         "boucles": {
           "type": "featured_collection",
           "settings": { "collection": "" }
+        },
+        "tous_nos_bijoux": {
+          "type": "featured_collection",
+          "settings": { "collection": "tous-nos-bijoux" }
         }
       },
-      "block_order": ["bagues", "colliers", "bracelets", "boucles"],
+      "block_order": ["bagues", "colliers", "bracelets", "boucles", "tous_nos_bijoux"],
       "settings": {
         "title": "Nos collections",
         "heading_size": "h2",
         "image_ratio": "portrait",
-        "columns_desktop": 4,
+        "columns_desktop": 5,
         "color_scheme": "scheme-1",
         "show_view_all": false,
         "columns_mobile": "2",
