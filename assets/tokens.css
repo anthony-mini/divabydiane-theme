@@ -1,0 +1,30 @@
+/*
+ * Brand tokens — Diva by Diane
+ *
+ * Fixed brand decisions (Figma "Foundations", node 2:30), not merchant-editable
+ * theme settings. Dawn already exposes merchant-tunable values as CSS custom
+ * properties generated at render time in layout/theme.liquid from
+ * settings_schema.json/settings_data.json (--color-background,
+ * --color-foreground, --font-heading-family, --font-body-family,
+ * --buttons-radius, --page-width, etc.) — consume those, don't duplicate them
+ * here. This file only adds what Dawn has no settings slot for.
+ */
+
+:root {
+  /* Accessible gold text — #B08D57 raw fails WCAG AA for body text (3.09:1).
+     Reserved for text/badges; raw gold stays for fills/icons/text >= 18px. */
+  --color-gold-text: #8A6D3F;
+
+  --color-border: #E0E0E0;
+  --color-text-muted: #6B6B6B;
+
+  --space-xs: 0.8rem;
+  --space-sm: 1.6rem;
+  --space-md: 2.4rem;
+  --space-lg: 3.2rem;
+  --space-xl: 4.8rem;
+
+  --text-eyebrow: 1.1rem;  /* Jost Medium, tracking +8% */
+  --text-button: 1.4rem;   /* Jost Medium, tracking +2% */
+  --text-nav: 1.2rem;      /* Jost Medium, tracking +4% — header nav links */
+}
