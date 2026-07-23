@@ -1,0 +1,57 @@
+{{ 'component-promo-strip.css' | asset_url | stylesheet_tag }}
+
+{%- if section.settings.link != blank -%}
+  <a href="{{ section.settings.link }}" class="promo-strip color-{{ section.settings.color_scheme }}">
+{%- else -%}
+  <div class="promo-strip color-{{ section.settings.color_scheme }}">
+{%- endif -%}
+  <div class="promo-strip__inner page-width">
+    {%- if section.settings.heading != blank -%}
+      <p class="promo-strip__heading">{{ section.settings.heading | escape }}</p>
+    {%- endif -%}
+    {%- if section.settings.subtext != blank -%}
+      <p class="promo-strip__subtext">{{ section.settings.subtext | escape }}</p>
+    {%- endif -%}
+  </div>
+{%- if section.settings.link != blank -%}
+  </a>
+{%- else -%}
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Bandeau promo",
+  "class": "section-promo-strip",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-4"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "COLLECTION DE JUILLET — JUSQU'AU 31"
+    },
+    {
+      "type": "text",
+      "id": "subtext",
+      "label": "Sous-texte (réel uniquement — jamais de compteur décoratif)",
+      "default": "Dès 19€ — plus que quelques pièces disponibles"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Lien (optionnel)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bandeau promo"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,59 @@
+{{ 'component-reassurance-strip.css' | asset_url | stylesheet_tag }}
+
+<div class="reassurance-strip color-{{ section.settings.color_scheme }}">
+  <div class="reassurance-strip__grid page-width">
+    {%- for block in section.blocks -%}
+      <div class="reassurance-strip__item" {{ block.shopify_attributes }}>
+        <span class="reassurance-strip__icon">{{ block.settings.icon | inline_asset_content }}</span>
+        <p class="reassurance-strip__label">{{ block.settings.label | escape }}</p>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Réassurance",
+  "class": "section-reassurance-strip",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Nom du fichier icône (assets/)",
+          "default": "icon-box.svg"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Texte",
+          "default": "Packaging signature"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Réassurance",
+      "blocks": [
+        { "type": "item", "settings": { "icon": "icon-box.svg", "label": "Packaging signature" } },
+        { "type": "item", "settings": { "icon": "icon-chat-bubble.svg", "label": "SAV 24/7" } },
+        { "type": "item", "settings": { "icon": "icon-truck.svg", "label": "Livraison offerte dès 50€" } },
+        { "type": "item", "settings": { "icon": "icon-return.svg", "label": "Retour sous 14 jours" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

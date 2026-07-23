@@ -30,8 +30,9 @@
   --font-heading-style: normal;
   --font-heading-weight: 400;
 
-  /* Accessible gold text — #B08D57 raw fails WCAG AA for body text (3.09:1).
-     Reserved for text/badges; raw gold stays for fills/icons/text >= 18px. */
+  /* Decorative gold — fills/icons/text >= 18px only (3.09:1, fails AA below
+     that size). Below 18px, use --color-gold-text instead (4.84:1). */
+  --color-gold: #B08D57;
   --color-gold-text: #8A6D3F;
 
   --color-border: #E0E0E0;

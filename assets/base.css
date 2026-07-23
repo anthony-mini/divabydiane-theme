@@ -146,15 +146,19 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   }
 }
 
-/* Figma spec (node 13:41): header padding is 32px at every width Dawn treats
-   as "desktop" -- override Dawn's wider 50px default for non-drawer menus
-   at >=990px specifically for the header (.page-width elsewhere is
-   unaffected). */
-@media screen and (min-width: 990px) {
-  .header:not(.drawer-menu).page-width {
-    padding-left: 3.2rem;
-    padding-right: 3.2rem;
-  }
+/* Correction: an earlier pass here matched the header's padding to the body
+   content sections' 64px margin (Nouveautés/Collections, nodes 87:244/88:155),
+   reasoning the header's own isolated component spec (13:41: 1200px box +
+   32px padding = 152px from the viewport edge) was a red herring. Fetching
+   the full composed Home mockup (node 82:3) directly disproves that: the
+   Header instance there renders `w-full` with `px-[32px]` — i.e. 32px from
+   the real viewport edge, matching Dawn's own unmodified default (inherited
+   from the 750px tier below, 3.2rem). Body content sections intentionally
+   sit at 64px while the header sits at 32px — not a bug, a deliberate
+   difference. Only the max-width drop is still needed, so the header spans
+   full width instead of being centered as an isolated 1200px box. */
+.header.page-width {
+  max-width: none;
 }
 
 .isolate {
@@ -2183,6 +2187,16 @@ input[type='checkbox'] {
   grid-area: announcements;
 }
 
+/* Masque le déroulement vertical du message à l'intérieur du bandeau —
+   sans ça, le message entrant/sortant déborderait visiblement au-dessus
+   (hors du viewport, sans gravité) et en dessous (dans le Header) pendant
+   les ~250ms de transition. Scopé au wrapper du message seul, pas à
+   .announcement-bar qui porte aussi les boutons flèche (marge négative
+   volontaire, à ne pas clipper). */
+.announcement-bar__announcement {
+  overflow: hidden;
+}
+
 .announcement-bar .slider--everywhere {
   margin-bottom: 0;
   scroll-behavior: auto;
@@ -2271,6 +2285,13 @@ input[type='checkbox'] {
 }
 
 .announcement-bar__message {
+  /* min-height (3.8rem) est plus grand que padding+line-height réels
+     (~3.56rem) — sans centrage flex propre, l'écart de ~0.24rem s'ajoute
+     tout en bas de la boîte (comportement bloc normal), pas réparti,
+     décentrant visuellement le texte de quelques pixels vers le haut. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   padding: 1rem 0;
   margin: 0;
@@ -2298,15 +2319,12 @@ input[type='checkbox'] {
   animation-fill-mode: forwards;
 }
 
+/* Déroulement vertical (par le bas) plutôt que le glissement horizontal
+   d'origine de Dawn : "next" (y compris la rotation automatique, qui
+   n'appelle jamais que "next") fait monter le nouveau message depuis le
+   bas, l'ancien continue vers le haut en sortant — effet "tapis roulant".
+   "previous" inverse le sens (utile pour la flèche précédente manuelle). */
 .announcement-bar-slider--fade-in-next .announcement-bar__message {
-  --announcement-translate-from: -1.5rem;
-  /* Prevent flicker */
-  opacity: 0;
-  animation-name: translateAnnouncementSlideIn;
-  animation-delay: var(--duration-announcement-bar);
-}
-
-.announcement-bar-slider--fade-in-previous .announcement-bar__message {
   --announcement-translate-from: 1.5rem;
   /* Prevent flicker */
   opacity: 0;
@@ -2314,35 +2332,56 @@ input[type='checkbox'] {
   animation-delay: var(--duration-announcement-bar);
 }
 
+.announcement-bar-slider--fade-in-previous .announcement-bar__message {
+  --announcement-translate-from: -1.5rem;
+  /* Prevent flicker */
+  opacity: 0;
+  animation-name: translateAnnouncementSlideIn;
+  animation-delay: var(--duration-announcement-bar);
+}
+
 .announcement-bar-slider--fade-out-next .announcement-bar__message {
-  --announcement-translate-to: 1.5rem;
+  --announcement-translate-to: -1.5rem;
   animation-name: translateAnnouncementSlideOut;
 }
 
 .announcement-bar-slider--fade-out-previous .announcement-bar__message {
-  --announcement-translate-to: -1.5rem;
+  --announcement-translate-to: 1.5rem;
   animation-name: translateAnnouncementSlideOut;
 }
 
 @keyframes translateAnnouncementSlideIn {
   0% {
     opacity: 0;
-    transform: translateX(var(--announcement-translate-from));
+    transform: translateY(var(--announcement-translate-from));
   }
   100% {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }
 
 @keyframes translateAnnouncementSlideOut {
   0% {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
   100% {
     opacity: 0;
-    transform: translateX(var(--announcement-translate-to));
+    transform: translateY(var(--announcement-translate-to));
+  }
+}
+
+/* L'autoplay JS coupe déjà l'auto-rotation en prefers-reduced-motion, mais
+   un clic manuel sur les flèches déclenchait quand même le déroulement —
+   repli sur un simple fondu, sans déplacement. */
+@media (prefers-reduced-motion: reduce) {
+  .announcement-bar-slider--fade-in-next .announcement-bar__message,
+  .announcement-bar-slider--fade-in-previous .announcement-bar__message,
+  .announcement-bar-slider--fade-out-next .announcement-bar__message,
+  .announcement-bar-slider--fade-out-previous .announcement-bar__message {
+    --announcement-translate-from: 0;
+    --announcement-translate-to: 0;
   }
 }
 
