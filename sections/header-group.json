@@ -20,13 +20,45 @@
             "text": "LIVRAISON OFFERTE DÈS 50€ D'ACHAT",
             "link": ""
           }
+        },
+        "announcement-bar-1": {
+          "type": "announcement",
+          "settings": {
+            "text": "RETOUR SOUS 14 JOURS",
+            "link": ""
+          }
+        },
+        "announcement-bar-2": {
+          "type": "announcement",
+          "settings": {
+            "text": "BE A DIVA.",
+            "link": ""
+          }
+        },
+        "announcement-bar-3": {
+          "type": "announcement",
+          "settings": {
+            "text": "DES PIÈCES QU'ON NE TROUVE PAS AILLEURS",
+            "link": ""
+          }
+        },
+        "announcement-bar-4": {
+          "type": "announcement",
+          "settings": {
+            "text": "PAIEMENT SÉCURISÉ",
+            "link": ""
+          }
         }
       },
       "block_order": [
-        "announcement-bar-0"
+        "announcement-bar-0",
+        "announcement-bar-1",
+        "announcement-bar-2",
+        "announcement-bar-3",
+        "announcement-bar-4"
       ],
       "settings": {
-        "auto_rotate": false,
+        "auto_rotate": true,
         "change_slides_speed": 5,
         "color_scheme": "scheme-4",
         "show_line_separator": false,

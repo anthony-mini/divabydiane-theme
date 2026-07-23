@@ -2187,6 +2187,16 @@ input[type='checkbox'] {
   grid-area: announcements;
 }
 
+/* Masque le déroulement vertical du message à l'intérieur du bandeau —
+   sans ça, le message entrant/sortant déborderait visiblement au-dessus
+   (hors du viewport, sans gravité) et en dessous (dans le Header) pendant
+   les ~250ms de transition. Scopé au wrapper du message seul, pas à
+   .announcement-bar qui porte aussi les boutons flèche (marge négative
+   volontaire, à ne pas clipper). */
+.announcement-bar__announcement {
+  overflow: hidden;
+}
+
 .announcement-bar .slider--everywhere {
   margin-bottom: 0;
   scroll-behavior: auto;
@@ -2302,15 +2312,12 @@ input[type='checkbox'] {
   animation-fill-mode: forwards;
 }
 
+/* Déroulement vertical (par le bas) plutôt que le glissement horizontal
+   d'origine de Dawn : "next" (y compris la rotation automatique, qui
+   n'appelle jamais que "next") fait monter le nouveau message depuis le
+   bas, l'ancien continue vers le haut en sortant — effet "tapis roulant".
+   "previous" inverse le sens (utile pour la flèche précédente manuelle). */
 .announcement-bar-slider--fade-in-next .announcement-bar__message {
-  --announcement-translate-from: -1.5rem;
-  /* Prevent flicker */
-  opacity: 0;
-  animation-name: translateAnnouncementSlideIn;
-  animation-delay: var(--duration-announcement-bar);
-}
-
-.announcement-bar-slider--fade-in-previous .announcement-bar__message {
   --announcement-translate-from: 1.5rem;
   /* Prevent flicker */
   opacity: 0;
@@ -2318,35 +2325,56 @@ input[type='checkbox'] {
   animation-delay: var(--duration-announcement-bar);
 }
 
+.announcement-bar-slider--fade-in-previous .announcement-bar__message {
+  --announcement-translate-from: -1.5rem;
+  /* Prevent flicker */
+  opacity: 0;
+  animation-name: translateAnnouncementSlideIn;
+  animation-delay: var(--duration-announcement-bar);
+}
+
 .announcement-bar-slider--fade-out-next .announcement-bar__message {
-  --announcement-translate-to: 1.5rem;
+  --announcement-translate-to: -1.5rem;
   animation-name: translateAnnouncementSlideOut;
 }
 
 .announcement-bar-slider--fade-out-previous .announcement-bar__message {
-  --announcement-translate-to: -1.5rem;
+  --announcement-translate-to: 1.5rem;
   animation-name: translateAnnouncementSlideOut;
 }
 
 @keyframes translateAnnouncementSlideIn {
   0% {
     opacity: 0;
-    transform: translateX(var(--announcement-translate-from));
+    transform: translateY(var(--announcement-translate-from));
   }
   100% {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }
 
 @keyframes translateAnnouncementSlideOut {
   0% {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
   100% {
     opacity: 0;
-    transform: translateX(var(--announcement-translate-to));
+    transform: translateY(var(--announcement-translate-to));
+  }
+}
+
+/* L'autoplay JS coupe déjà l'auto-rotation en prefers-reduced-motion, mais
+   un clic manuel sur les flèches déclenchait quand même le déroulement —
+   repli sur un simple fondu, sans déplacement. */
+@media (prefers-reduced-motion: reduce) {
+  .announcement-bar-slider--fade-in-next .announcement-bar__message,
+  .announcement-bar-slider--fade-in-previous .announcement-bar__message,
+  .announcement-bar-slider--fade-out-next .announcement-bar__message,
+  .announcement-bar-slider--fade-out-previous .announcement-bar__message {
+    --announcement-translate-from: 0;
+    --announcement-translate-to: 0;
   }
 }
 
