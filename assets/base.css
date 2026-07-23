@@ -2285,6 +2285,13 @@ input[type='checkbox'] {
 }
 
 .announcement-bar__message {
+  /* min-height (3.8rem) est plus grand que padding+line-height réels
+     (~3.56rem) — sans centrage flex propre, l'écart de ~0.24rem s'ajoute
+     tout en bas de la boîte (comportement bloc normal), pas réparti,
+     décentrant visuellement le texte de quelques pixels vers le haut. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   padding: 1rem 0;
   margin: 0;
