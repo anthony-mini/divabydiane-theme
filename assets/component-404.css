@@ -1,0 +1,71 @@
+/* Figma node 197:440 (mobile) / 196:345 (desktop) — page 404. Council du
+   23/07 (session council/2026-07-23-page-404-mockup.md, verdict PIVOT) :
+   header/footer conservés (contexte de marque), contenu épuré (pas de
+   relance découverte, distinct de No Results). Contenu dimensionné pour
+   rester visible sans scroll sur un écran typique (min-height calculé
+   depuis la hauteur réelle mesurée de l'announcement bar + header, pas une
+   valeur Figma arbitraire) ; le Footer, lui, reste accessible en scrollant,
+   comme documenté dans le design system. */
+.error-404__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  text-align: center;
+  /* svh (small viewport height) plutôt que vh/dvh : garantit que le
+     contenu reste visible même quand la barre d'adresse mobile est
+     développée au maximum, plutôt que de déborder dans ce cas précis. */
+  min-height: calc(100svh - 12.5rem);
+  padding: 4rem 2rem;
+}
+
+.error-404__heading {
+  margin: 0;
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  font-size: 5.6rem;
+  line-height: 1.1;
+  color: rgb(var(--color-foreground));
+}
+
+.error-404__text {
+  margin: 0;
+  max-width: 40rem;
+  font-family: var(--font-body-family);
+  font-size: 1.4rem;
+  color: var(--color-text-muted);
+}
+
+.error-404__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.8rem;
+  padding: 1.4rem 2.4rem;
+  background-color: rgba(var(--color-button), var(--alpha-button-background));
+  color: rgb(var(--color-button-text));
+  font-family: var(--font-body-family);
+  font-weight: 500;
+  font-size: 1.4rem;
+  letter-spacing: 0.028rem;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 990px) {
+  .error-404__content {
+    gap: 2rem;
+    min-height: calc(100svh - 14.1rem);
+    padding: 4.8rem 2rem;
+  }
+
+  .error-404__heading {
+    font-size: 7.2rem;
+  }
+
+  .error-404__text {
+    font-size: 1.5rem;
+  }
+}

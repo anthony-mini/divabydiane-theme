@@ -1,7 +1,14 @@
 {
   "sections": {
     "main": {
-      "type": "main-404"
+      "type": "main-404",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading": "404",
+        "text": "Cette page n'existe pas ou n'est plus disponible.",
+        "button_label": "Découvrir nos bijoux",
+        "button_link": ""
+      }
     }
   },
   "order": [
