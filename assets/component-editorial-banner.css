@@ -52,7 +52,9 @@
   align-items: center;
   gap: 0.4rem;
   font-family: var(--font-body-family);
-  font-weight: 500;
+  /* Figma: Jost Medium (500) -- see component-promo-strip.css for why this is
+     700 instead (only Jost 400/700 are loaded; 500 renders as plain 400). */
+  font-weight: 700;
   font-size: 1.2rem;
   color: rgb(var(--color-foreground));
   text-decoration: none;

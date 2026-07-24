@@ -2531,8 +2531,23 @@ input[type='checkbox'] {
 }
 
 .header__heading-logo {
-  height: auto;
+  /* Figma spec (nodes 38:10 mobile / 13:31 desktop): a compact "Diva by
+     Diane" wordmark, Prata 18px mobile / 26px desktop -- sized to sit
+     comfortably next to the ~20-24px header icons. The merchant-uploaded
+     logo image (settings.logo) has no responsive sizing of its own (a single
+     global settings.logo_width for every breakpoint), so it renders at a
+     fixed, oversized box on mobile. Constrain by height with width auto to
+     preserve the image's aspect ratio at a size matching the wordmark's
+     visual weight. */
+  height: 3.2rem;
+  width: auto;
   max-width: 100%;
+}
+
+@media screen and (min-width: 990px) {
+  .header__heading-logo {
+    height: 4.8rem;
+  }
 }
 
 .header__heading-logo-wrapper {

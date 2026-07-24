@@ -36,6 +36,25 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  /* Product card title (Figma "Nouveautés", node 95:264 mobile / 87:249
+     desktop) is Dawn's generic .h5 class, driven by the global
+     --font-heading-scale theme setting: calc(scale * 1.2rem) mobile /
+     calc(scale * 1.3rem) desktop = 12px / 13px at the current scale=1. Figma
+     wants ~11px mobile (10.86px scaled instance) and 18px desktop
+     (I87:249;55:8). Overriding .h5 itself would resize every h5 sitewide
+     (product pages, other collections), so this is scoped to this section's
+     instance only, matching the .card__content--overlay precedent used for
+     the collection cards below. */
+  #shopify-section-{{ section.id }} .card__heading.h5 {
+    font-size: 1.1rem;
+  }
+
+  @media screen and (min-width: 990px) {
+    #shopify-section-{{ section.id }} .card__heading.h5 {
+      font-size: 1.8rem;
+    }
+  }
 {%- endstyle -%}
 
 {%- liquid

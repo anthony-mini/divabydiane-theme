@@ -25,7 +25,11 @@
 .reviews-widget__rating {
   margin: 0;
   font-family: var(--font-body-family);
-  font-weight: 500;
+  /* Figma: Jost Medium (500) -- see .promo-strip__heading comment on why this
+     is 700 instead (only Jost 400/700 are loaded; 500 renders as plain 400). */
+  font-weight: 700;
+  /* Figma node 92:316 (mobile): 12px. Desktop (86:154): 14px -- see the 990px
+     override below. */
   font-size: 1.2rem;
   color: rgb(var(--color-foreground));
 }
@@ -57,6 +61,8 @@
 .reviews-widget__quote {
   margin: 0;
   font-family: var(--font-body-family);
+  /* Figma node 92:318 (mobile): 12px. Desktop (86:168): 13px -- see the 990px
+     override below. */
   font-size: 1.2rem;
   line-height: 1.4;
   color: rgb(var(--color-foreground));
@@ -65,7 +71,11 @@
 .reviews-widget__author {
   font-style: normal;
   font-family: var(--font-body-family);
-  font-weight: 500;
+  /* Figma: Jost Medium (500) -- see .promo-strip__heading comment on why this
+     is 700 instead (only Jost 400/700 are loaded; 500 renders as plain 400). */
+  font-weight: 700;
+  /* Figma node 92:319 (mobile): 10px. Desktop (86:169): 11px -- see the 990px
+     override below. */
   font-size: 1rem;
   color: var(--color-gold-text);
 }
@@ -83,5 +93,17 @@
 
   .reviews-widget__item {
     flex: 1;
+  }
+
+  .reviews-widget__rating {
+    font-size: 1.4rem;
+  }
+
+  .reviews-widget__quote {
+    font-size: 1.3rem;
+  }
+
+  .reviews-widget__author {
+    font-size: 1.1rem;
   }
 }

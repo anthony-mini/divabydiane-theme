@@ -44,6 +44,8 @@
   font-family: var(--font-heading-family);
   font-style: var(--font-heading-style);
   font-weight: var(--font-heading-weight);
+  /* Figma node 97:283 (mobile): 18px. Desktop (14:29): 22px -- see the 990px
+     override below. */
   font-size: 1.8rem;
   color: #ffffff;
 }
@@ -51,6 +53,8 @@
 .footer__brand-tagline {
   margin: 0;
   font-family: var(--font-body-family);
+  /* Figma node 97:284 (mobile): 10px, tracking 0.6px. Desktop (14:30): 11px,
+     tracking 0.66px -- see the 990px override below. */
   font-size: 1rem;
   letter-spacing: 0.06rem;
   color: var(--color-gold);
@@ -87,7 +91,9 @@
 .footer__nav-heading {
   margin: 0;
   font-family: var(--font-body-family);
-  font-weight: 500;
+  /* Figma: Jost Medium (500) -- see component-promo-strip.css for why this is
+     700 instead (only Jost 400/700 are loaded; 500 renders as plain 400). */
+  font-weight: 700;
   font-size: 1.2rem;
   color: #ffffff;
 }
@@ -103,6 +109,10 @@
 
 .footer__nav-link {
   font-family: var(--font-body-family);
+  /* Figma mobile Nav Link (97:287 etc.): Jost Regular, 11px, no tracking.
+     Desktop Nav Link (shared component 58:77, e.g. I145:118;58:89): Jost
+     Medium, 12px, tracking 0.48px -- a deliberately heavier/larger treatment
+     on desktop, see the 990px override below. */
   font-size: 1.1rem;
   color: #b3b3b3;
   text-decoration: none;
@@ -168,7 +178,10 @@
   .footer__trust-badge-heading {
     margin: 0;
     font-family: var(--font-body-family);
-    font-weight: 500;
+    /* Figma: Jost Medium (500) -- see component-promo-strip.css for why this
+       is 700 instead (only Jost 400/700 are loaded; 500 renders as plain
+       400). */
+    font-weight: 700;
     font-size: 1.3rem;
     color: #ffffff;
   }
@@ -178,6 +191,21 @@
     font-family: var(--font-body-family);
     font-size: 1.2rem;
     color: #b3b3b3;
+  }
+
+  .footer__brand-name {
+    font-size: 2.2rem;
+  }
+
+  .footer__brand-tagline {
+    font-size: 1.1rem;
+    letter-spacing: 0.066rem;
+  }
+
+  .footer__nav-link {
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 0.048rem;
   }
 
   .footer__columns {

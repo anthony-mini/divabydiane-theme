@@ -34,7 +34,11 @@
 .reassurance-strip__label {
   margin: 0;
   font-family: var(--font-body-family);
-  font-weight: 500;
+  /* Figma: Jost Medium (500) -- see .promo-strip__heading comment on why this
+     is 700 instead (only Jost 400/700 are loaded; 500 renders as plain 400). */
+  font-weight: 700;
+  /* Figma node 92:284 etc. (mobile): 11px. Desktop (86:122 etc.): 13px -- see
+     the 990px override below. */
   font-size: 1.1rem;
   color: rgb(var(--color-foreground));
   white-space: nowrap;
@@ -54,5 +58,9 @@
   .reassurance-strip__icon {
     width: 2rem;
     height: 2rem;
+  }
+
+  .reassurance-strip__label {
+    font-size: 1.3rem;
   }
 }
