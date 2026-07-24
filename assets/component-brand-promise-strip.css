@@ -12,9 +12,13 @@
 .brand-promise-strip__eyebrow {
   margin: 0;
   font-family: var(--font-body-family);
-  font-weight: 500;
-  font-size: 1.1rem;
-  letter-spacing: 0.088rem;
+  /* Figma: Jost Medium (500) -- see .promo-strip__heading comment on why this
+     is 700 instead (only Jost 400/700 are loaded; 500 renders as plain 400). */
+  font-weight: 700;
+  /* Figma node 91:234 (mobile): 10px, tracking 0.8px. Desktop (85:117): 11px,
+     tracking 0.88px -- see the 990px override below. */
+  font-size: 1rem;
+  letter-spacing: 0.08rem;
   color: rgb(var(--color-foreground));
 }
 
@@ -27,10 +31,22 @@
   color: rgb(var(--color-foreground));
 }
 
+@media screen and (max-width: 749px) {
+  .brand-promise-strip__inner.page-width {
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+  }
+}
+
 @media screen and (min-width: 990px) {
   .brand-promise-strip__inner {
     padding-top: 4rem;
     padding-bottom: 4rem;
+  }
+
+  .brand-promise-strip__eyebrow {
+    font-size: 1.1rem;
+    letter-spacing: 0.088rem;
   }
 
   .brand-promise-strip__text {

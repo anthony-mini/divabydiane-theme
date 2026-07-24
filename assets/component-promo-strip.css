@@ -16,10 +16,17 @@
 .promo-strip__heading {
   margin: 0;
   font-family: var(--font-body-family);
-  font-weight: 500;
+  /* Figma spec: Jost Medium (500). Dawn only preloads Jost 400/700 (see
+     .announcement-bar__message.h5 in base.css) -- 500 silently falls back to
+     400 with zero visual distinction, so 700 stands in for "Medium" here too. */
+  font-weight: 700;
   font-size: 1.2rem;
   letter-spacing: 0.048rem;
-  color: var(--color-gold-text);
+  /* Figma node 29:22: #b08d57 (--color-gold), not the darker --color-gold-text.
+     --color-gold's documented "fails AA below 18px" caveat was measured against
+     a white background; against this component's #121212 background the actual
+     contrast is ~6:1, comfortably AA-compliant at 12px. */
+  color: var(--color-gold);
 }
 
 .promo-strip__subtext {
