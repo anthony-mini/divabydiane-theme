@@ -136,7 +136,7 @@
       },
       "block_order": ["bagues", "colliers", "bracelets", "boucles", "tous_nos_bijoux"],
       "settings": {
-        "title": "Nos collections",
+        "title": "Nos essentiels",
         "heading_size": "h2",
         "image_ratio": "portrait",
         "columns_desktop": 5,
