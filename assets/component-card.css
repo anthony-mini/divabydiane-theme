@@ -687,11 +687,6 @@
   cursor: pointer;
 }
 
-.card__chip--quick-add .svg-wrapper {
-  width: 1.2rem;
-  height: 1.2rem;
-}
-
 .card__chip--quick-add.loading .svg-wrapper {
   visibility: hidden;
 }
@@ -721,10 +716,5 @@
 
   .card__chip.card__chip--quick-add {
     bottom: 0.5rem;
-  }
-
-  .card__chip--quick-add .svg-wrapper {
-    width: 0.7rem;
-    height: 0.7rem;
   }
 }
