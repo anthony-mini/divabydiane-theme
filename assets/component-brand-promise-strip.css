@@ -27,6 +27,13 @@
   color: rgb(var(--color-foreground));
 }
 
+@media screen and (max-width: 749px) {
+  .brand-promise-strip__inner.page-width {
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+  }
+}
+
 @media screen and (min-width: 990px) {
   .brand-promise-strip__inner {
     padding-top: 4rem;
