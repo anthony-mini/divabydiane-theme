@@ -593,3 +593,86 @@
     clip-path: polygon(var(--shape--blob-5));
   }
 }
+
+/* Product card overlay chips (wishlist / quick add) — Figma nodes
+   "wishlist-chip" and "quick-add-chip", 32px on desktop / 19px on mobile,
+   inset 8px (desktop) / 5-6px (mobile) from the image edges. */
+.card__chip {
+  position: absolute;
+  right: 1rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 3.2rem;
+  height: 3.2rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.92);
+  color: rgb(18, 18, 18);
+}
+
+.card__chip .svg-wrapper {
+  width: 2rem;
+  height: 2rem;
+}
+
+.card__chip--wishlist {
+  top: 0.8rem;
+}
+
+.card__chip--wishlist .icon {
+  fill: currentColor;
+}
+
+.card__chip.card__chip--quick-add {
+  bottom: 0.8rem;
+  min-width: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.card__chip--quick-add .svg-wrapper {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.card__chip--quick-add.loading .svg-wrapper {
+  visibility: hidden;
+}
+
+.card__chip--quick-add.loading .loading__spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 749px) {
+  .card__chip {
+    right: 0.6rem;
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+
+  .card__chip .svg-wrapper {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .card__chip--wishlist {
+    top: 0.5rem;
+  }
+
+  .card__chip.card__chip--quick-add {
+    bottom: 0.5rem;
+  }
+
+  .card__chip--quick-add .svg-wrapper {
+    width: 0.7rem;
+    height: 0.7rem;
+  }
+}
